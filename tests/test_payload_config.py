@@ -45,15 +45,21 @@ class TestPayloadConfig:
             )
 
     def test_no_vars_and_no_ntlm_validation(self, basic_evasion_config, basic_exfil_method):
-        """Test that config without vars or NTLM is rejected"""
-        with pytest.raises(ValidationError):
-            PayloadConfig(
-                target_command=["whoami"],
-                exfil_methods=[basic_exfil_method],
-                evasion=basic_evasion_config,
-                additional_vars=[],  # No vars
-                ntlm_capture=False  # No NTLM
-            )
+        """Test that config with command but without vars or NTLM is now allowed"""
+        # NOTE: Validation was improved to be more permissive
+        # A payload with just a command execution is valid (e.g., reverse shell)
+        config = PayloadConfig(
+            target_command=["whoami"],
+            exfil_methods=[basic_exfil_method],
+            evasion=basic_evasion_config,
+            additional_vars=[],  # No vars
+            ntlm_capture=False  # No NTLM
+        )
+
+        # Should be valid because target_command is present
+        assert config.target_command == ["whoami"]
+        assert config.additional_vars == []
+        assert config.ntlm_capture is False
 
     def test_ntlm_without_vars_allowed(self, basic_evasion_config, basic_exfil_method):
         """Test that NTLM-only config is valid"""

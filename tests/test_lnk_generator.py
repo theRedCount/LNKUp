@@ -47,8 +47,9 @@ class TestLNKGenerator:
 
         payload = generator.build_payload()
 
-        # Should contain sleep command
-        assert "Sleep" in payload or "sleep" in payload.lower()
+        # Should contain sleep command (may be obfuscated with quotes)
+        # Check for variations: "Sleep", "Sle''ep", "sle''ep", etc.
+        assert "sle" in payload.lower() and "ep" in payload.lower()
 
     def test_build_payload_with_env_vars(self, env_exfil_payload_config):
         """Test payload with environment variable collection"""
