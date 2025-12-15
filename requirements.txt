@@ -1,1 +1,14 @@
-pylnk==0.2
+# Core dependencies for generate_new.py and wizard.py
+pydantic>=2.0.0
+pyyaml>=6.0
+pylnk3>=0.4.0
+
+# Platform-specific (Windows only)
+# Uncomment the line below on Windows:
+# pywin32>=300
+
+# Optional for better terminal output
+colorama>=0.4.6
+
+# Legacy dependency for generate.py (original version)
+# pylnk==0.2  # Python 2 only, not compatible with Python 3

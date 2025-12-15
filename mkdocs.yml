@@ -1,0 +1,96 @@
+site_name: LNKUp - Advanced LNK Payload Generator
+site_description: Modern red teaming tool for weaponized Windows shortcut generation
+site_author: LNKUp Contributors
+repo_url: https://github.com/yourusername/LNKUp
+repo_name: GitHub
+
+theme:
+  name: material
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: red
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: red
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quick-start.md
+      - First Payload: getting-started/first-payload.md
+  - Usage:
+      - Wizard Guide: usage/wizard.md
+      - CLI Reference: usage/cli.md
+      - YAML Configuration: usage/yaml-config.md
+  - Payload Types:
+      - NTLM Capture: payloads/ntlm-capture.md
+      - Environment Exfiltration: payloads/env-exfil.md
+      - Command Execution: payloads/command-exec.md
+      - Hybrid Payloads: payloads/hybrid.md
+      - WebDAV Exfiltration: payloads/webdav.md
+  - Evasion Techniques:
+      - AMSI Bypass: evasion/amsi.md
+      - LOLBAS Proxy: evasion/lolbas.md
+      - Obfuscation: evasion/obfuscation.md
+      - Anti-Detection: evasion/anti-detection.md
+  - Practical Scenarios:
+      - USB Drop Attack: scenarios/usb-drop.md
+      - Phishing Campaign: scenarios/phishing.md
+      - Internal Recon: scenarios/recon.md
+      - Red Team Chain: scenarios/red-team.md
+  - Advanced:
+      - Custom Development: advanced/custom-dev.md
+      - API Reference: advanced/api.md
+      - Troubleshooting: advanced/troubleshooting.md
+  - Legal & Ethics: legal.md
+  - Changelog: changelog.md
+
+plugins:
+  - search
+  - tags
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername/LNKUp
+  generator: false
